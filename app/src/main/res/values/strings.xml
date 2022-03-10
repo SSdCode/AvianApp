@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">AvianApp</string>
+
+    <string name="batch_id">Batch ID:</string>
+    <string name="brand">Brand:</string>
+    <string name="category">Category:</string>
+    <string name="specification">Specification:</string>
+    <string name="price">Price:</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="add_product">Add Product</string>
+    <string name="quantity">Quantity:</string>
+    <string name="edit_product">EDIT PRODUCT</string>
+    <string name="save">save</string>
+
+    <string name="expense_type">Expense Type</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="code">Code:</string>
+    <string name="valid_from">Valid from:</string>
+    <string name="valid_till">Valid till:</string>
+    <string name="type">Type:</string>
+    <string name="value">Value:</string>
+    <string name="percentage">Percentage</string>
+    <string name="edit_coupon">Edit Coupon</string>
+    <string name="add_coupon">Add Coupon</string>
+    <string name="header_add_product">ADD PRODUCT</string>
+    <string name="delete_coupon">Delete Coupon</string>
+    <string name="are_you_sure_you_want_to_delete_this_coupon">Are you sure you want to delete this coupon?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+
+    <string-array name="status">
+        <item>Done</item>
+        <item>pending</item>
+        <item>Cancel</item>
+    </string-array>
+
+    <string-array name="action">
+        <item>View</item>
+        <item>Approve</item>
+        <item>Reject</item>
+    </string-array>
+
+    <array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Others</item>
+    </array>
+
+</resources>

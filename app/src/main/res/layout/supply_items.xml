@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="20dp"
+    android:elevation="10dp"
+    android:backgroundTint="@color/cardview_shadow_end_color"
+    android:layout_height="350dp">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="First Name :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter first name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyFirstName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Last Name :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyFirstName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter last name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyLastName"
+            app:layout_constraintTop_toBottomOf="@id/supplyFirstName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Mobile :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyLastName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Mobile"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyMobile"
+            app:layout_constraintTop_toBottomOf="@id/supplyLastName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Address :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyMobile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter address"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyAddress"
+            app:layout_constraintTop_toBottomOf="@id/supplyMobile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="City :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyAddress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter city"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyCity"
+            app:layout_constraintTop_toBottomOf="@id/supplyAddress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="State :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyCity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter State"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyState"
+            app:layout_constraintTop_toBottomOf="@id/supplyCity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyPin_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Pin code :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyState" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter first name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyPin_code"
+            app:layout_constraintTop_toBottomOf="@id/supplyState" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Company :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyPin_code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/supplyEditCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter first name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/supplyCompany"
+            app:layout_constraintTop_toBottomOf="@id/supplyPin_code" />
+
+        <ImageButton
+            android:id="@+id/supplyBtn"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/supplyDelete"
+
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplyCompany"
+            tools:ignore="SpeakableTextPresentCheck"
+            tools:src="@android:drawable/ic_menu_edit" />
+
+        <ImageButton
+            android:id="@+id/supplyDelete"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/app_name"
+
+            android:scaleType="centerCrop"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/supplyBtn"
+            app:layout_constraintTop_toBottomOf="@id/supplyCompany"
+            tools:src="@android:drawable/ic_menu_delete" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

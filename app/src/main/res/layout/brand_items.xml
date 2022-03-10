@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="20dp"
+    android:elevation="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:backgroundTint="@color/cardview_shadow_end_color"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="First Name :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter first name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandFirstName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Last Name :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandFirstName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter last name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandLastName"
+            app:layout_constraintTop_toBottomOf="@id/brandFirstName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Mobile :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandLastName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Mobile"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandMobile"
+            app:layout_constraintTop_toBottomOf="@id/brandLastName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Address :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandMobile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter address"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandAddress"
+            app:layout_constraintTop_toBottomOf="@id/brandMobile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="City :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandAddress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter city"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandCity"
+            app:layout_constraintTop_toBottomOf="@id/brandAddress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="State :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandCity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter State"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandState"
+            app:layout_constraintTop_toBottomOf="@id/brandCity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandPin_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Pin code :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandState" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter first name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandPin_code"
+            app:layout_constraintTop_toBottomOf="@id/brandState" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Company :"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandPin_code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brandEditCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter first name"
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/brandCompany"
+            app:layout_constraintTop_toBottomOf="@id/brandPin_code" />
+
+        <ImageButton
+            android:id="@+id/brandBtn"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/brandDelete"
+
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brandCompany"
+            tools:ignore="SpeakableTextPresentCheck"
+            tools:src="@android:drawable/ic_menu_edit" />
+
+        <ImageButton
+            android:id="@+id/brandDelete"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/app_name"
+
+            android:scaleType="centerCrop"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/brandBtn"
+            app:layout_constraintTop_toBottomOf="@id/brandCompany"
+            tools:src="@android:drawable/ic_menu_delete" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

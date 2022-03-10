@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="First Name :"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFormFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter first name"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@id/formFirstName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Last Name :"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formFirstName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFormLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter last name"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@id/formLastName"
+        app:layout_constraintTop_toBottomOf="@id/formFirstName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Mobile :"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formLastName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFormMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter Mobile"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/editFormLastName"
+        app:layout_constraintStart_toEndOf="@+id/formMobile"
+        app:layout_constraintTop_toBottomOf="@id/formLastName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Company :"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formMobile" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/supplyEditCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter first name"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@id/formCompany"
+        app:layout_constraintTop_toBottomOf="@id/formMobile" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="City "
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formCompany" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFormCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter first name"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/supplyEditCompany"
+        app:layout_constraintStart_toEndOf="@id/formCity"
+        app:layout_constraintTop_toBottomOf="@id/formCompany" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="State : "
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formCity" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFormState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter first name"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@id/formState"
+        app:layout_constraintTop_toBottomOf="@id/formCity" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Pin : "
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formState" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFormPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter first name"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/editFormState"
+        app:layout_constraintStart_toEndOf="@id/formPin"
+        app:layout_constraintTop_toBottomOf="@id/formState" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/formAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Address : "
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formPin" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFormAddress"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:hint="Enter first name"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@id/formAddress"
+        app:layout_constraintTop_toBottomOf="@id/formPin" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/cancel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editFormAddress" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/save"
+        app:layout_constraintTop_toBottomOf="@id/editFormAddress" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
