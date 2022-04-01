@@ -1,7 +1,10 @@
 package com.sayalife.avianapp;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +13,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.sayalife.avianapp.database.DatabaseHelper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,7 +30,6 @@ public class RegistrationActivity extends AppCompatActivity {
     Button signup_btn;
 
     String fName, lName, gender, phone, email, password, confirmPassword;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 Pattern phonePattern = Pattern.compile("^[0-9]{10}+$");
                 Pattern emailPattern = Pattern.compile("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+.+[a-zA-Z]+$");
 //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
-                Pattern passwordPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+//                Pattern passwordPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
 
 
                 Matcher fNameMatcher = textPattern.matcher(fName);
@@ -99,24 +101,73 @@ public class RegistrationActivity extends AppCompatActivity {
                     if (!password.equals(confirmPassword)) {
                         Toast.makeText(getApplicationContext(), "Password Not Match", Toast.LENGTH_SHORT).show();
                     } else {
+//
+//                        Matcher passwordMatcher = passwordPattern.matcher(password);
+//                        boolean passwordMatches = passwordMatcher.matches();
 
-                        Matcher passwordMatcher = passwordPattern.matcher(password);
-                        boolean passwordMatches = passwordMatcher.matches();
-
-                        if (!passwordMatches) {
+//                        if (!passwordMatches) {
+                        if (false) {
                             Toast.makeText(getApplicationContext(), "Password Error - Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!", Toast.LENGTH_SHORT).show();
                         } else {
-                            SharedPreferences.Editor editor = getSharedPreferences("LoginDetails", MODE_PRIVATE).edit();
-                            editor.putString("email", email);
-                            editor.apply();
+                            boolean ans = checkUser(email, phone);
 
-                            Toast.makeText(getApplicationContext(), "Congratulations, You are a new Member", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                            finish();
+                            if (ans) {
+                                DatabaseHelper helper = new DatabaseHelper(getApplicationContext());
+                                SQLiteDatabase database = helper.getWritableDatabase();
+//"CREATE TABLE AllUsers(_id INTEGER PRIMARY KEY AUTOINCREMENT,FNAME VARCHAR(50),LNAME VARCHAR(50),GENDER VARCHAR(10), EMAIL VARCHAR(255),PHONE VARCHAR(255),PASSWORD VARCHAR(50))";
+                                ContentValues values = new ContentValues();
+                                values.put("FNAME", fName);
+                                values.put("LNAME", lName);
+                                values.put("GENDER", gender);
+                                values.put("EMAIL", email);
+                                values.put("PHONE", phone);
+                                values.put("PASSWORD", password);
+                                values.put("RollId", 4);
+                                long user_id = database.insert("AllUsers", null, values);
+                                if (user_id != -1) {
+                                    SharedPreferences.Editor editor = getSharedPreferences("LoginDetails", MODE_PRIVATE).edit();
+                                    editor.putString("email", email);
+                                    editor.putLong("userId", user_id);
+                                    editor.apply();
+
+                                    database.close();
+                                    Toast.makeText(getApplicationContext(), "Congratulations, You are a new Member", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Error Occurred", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Email or Phone already exists", Toast.LENGTH_SHORT).show();
+
+                            }
                         }
                     }
                 }
             }
         });
+    }
+
+    private boolean checkUser(String email, String mono) {
+        DatabaseHelper helper = new DatabaseHelper(this);
+        final SQLiteDatabase database = helper.getReadableDatabase();
+
+        String readData = "SELECT * FROM AllUsers";
+        Cursor cursor = database.rawQuery(readData, null);
+
+        boolean ans = true;
+        if (!(cursor.getCount() == 0)) {
+            cursor.moveToFirst();
+            do {
+                String getEmail = cursor.getString(4);
+                String mobNo = cursor.getString(5);
+                if (email.equals(getEmail) || mono.equals(mobNo)) {
+                    ans = false;
+                    return ans;
+                }
+            } while (cursor.moveToNext());
+        }
+        database.close();
+        return ans;
     }
 }

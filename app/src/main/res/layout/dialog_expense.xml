@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_6ssp"
+    app:cardCornerRadius="@dimen/_20ssp"
+    app:cardElevation="@dimen/_20ssp"
+    app:cardMaxElevation="@dimen/_22ssp"
+    app:cardPreventCornerOverlap="true">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8ssp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:fontFamily="@font/rowdies_regular"
+                android:text="Expense Type"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <Spinner
+                android:id="@+id/sp_expenseType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints="Expense Type"
+                android:fontFamily="@font/rowdies_light"
+                android:hint="Expense Type"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textSize="@dimen/_18ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:fontFamily="@font/rowdies_regular"
+                android:text="Expense Amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+
+            <EditText
+                android:id="@+id/et_expenseAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints="Expense Amount"
+                android:fontFamily="@font/rowdies_light"
+                android:hint="Expense Amount"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:fontFamily="@font/rowdies_regular"
+                android:text="Description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+
+            <EditText
+                android:id="@+id/et_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints="Expense Description"
+                android:fontFamily="@font/rowdies_light"
+                android:hint="Description"
+                android:imeOptions="actionNext"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_expense_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rowdies_regular"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_14ssp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>
+

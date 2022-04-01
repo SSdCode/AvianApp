@@ -1,30 +1,547 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:paddingHorizontal="1dp"
     tools:context=".MainActivity">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCards"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_add_circle_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgDashboard"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_baseline_dashboard_24"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgDashboard"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Dashboard"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_users"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgUsers"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_user"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgUsers"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/rowdies_light"
+                        android:text="Users"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_stores"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgStores"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_store"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgStores"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Stores"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_manufacturers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgManufacturers"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_manufactures"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgManufacturers"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Manufacture / Brand"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_expenses"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgExpenses"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_expense"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgExpenses"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Expenses"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_expenses_types"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgExpenseTypes"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_expense_types"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgExpenseTypes"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Expenses Types"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgProduct"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_products"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgProduct"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Products"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_product_purchase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgProductPurchase"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_purchase"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgProductPurchase"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Product Purchase"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_product_transfer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgProdTransfer"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_transfer"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgProdTransfer"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Product Transfer"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_bank_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgBankDetails"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_bank_details"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgBankDetails"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Bank Details"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_revised_purchase_products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgProdPurchaseRevised"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_revised_purchase"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgProdPurchaseRevised"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Revised Purchase products"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_dead_stock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_6ssp"
+                android:layout_weight="1"
+                android:background="@color/purple_500"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:padding="@dimen/_8ssp">
+
+                    <ImageView
+                        android:id="@+id/imgDeadStock"
+                        android:layout_width="94dp"
+                        android:layout_height="94dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_dead_stock"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgDeadStock"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:text="Dead Stock"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

@@ -2,54 +2,85 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sayalife.avianapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AvianApp">
+        android:theme="@style/Theme.AvianApp.MyStyle">
         <activity
-            android:name=".AddStoreActivity"
+            android:name=".AccountActivity"
             android:exported="false" />
         <activity
-            android:name=".BrandActivity"
+            android:name=".BankDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".coupon.CouponActivity"
+            android:name=".DeadStockActivity"
             android:exported="false" />
+        <activity
+            android:name=".UsersActivity"
+            android:configChanges="orientation"
+            android:exported="false" />
+        <activity
+            android:name=".RevisedPurchaseActivity"
+            android:configChanges="orientation"
+            android:exported="false" />
+        <activity
+            android:name=".ProductPurchaseActivity"
+            android:configChanges="orientation"
+            android:exported="false" />
+        <activity
+            android:name=".ExpenseTypesActivity"
+            android:configChanges="orientation"
+            android:exported="false" />
+        <activity
+            android:name=".ManufactureActivity"
+            android:configChanges="orientation"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".coupon.CouponActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".DashboardActivity"
+            android:configChanges="orientation"
             android:exported="false" />
         <activity
             android:name=".ExpenseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FormActivity"
-            android:exported="false" />
+            android:configChanges="orientation"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".gift.GiftActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".LoginActivity"
+            android:configChanges="orientation"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:exported="false" />
+        <activity
+            android:name=".StoresActivity"
+            android:configChanges="orientation"
             android:exported="false" />
         <activity
             android:name=".ProductActivity"
+            android:configChanges="orientation"
             android:exported="false" />
         <activity
             android:name=".ProductTransferActivity"
+            android:configChanges="orientation"
             android:exported="false" />
         <activity
             android:name=".RegistrationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SupplierActivity"
-            android:exported="false" />
-        <activity
-            android:name=".purchaseproductlist.PurchaseProductListActivity"
-            android:exported="false" />
+            android:configChanges="orientation"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".purchaseproductlist.PurchaseProductListActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".SplashScreenActivity"
+            android:configChanges="orientation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,7 +88,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

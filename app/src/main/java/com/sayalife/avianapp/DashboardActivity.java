@@ -1,49 +1,60 @@
 package com.sayalife.avianapp;
 
 import android.os.Bundle;
+import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.sayalife.avianapp.adapter.dashAdapter;
-import com.sayalife.avianapp.model.stockModel;
+import com.sayalife.avianapp.adapter.GridCountAdapter;
+import com.sayalife.avianapp.database.DatabaseHelper;
+import com.sayalife.avianapp.model.GridCountModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
-
-    RecyclerView recyclerView;
-    dashAdapter adapter;
+    ArrayList<GridCountModel> arrayList;
+    GridView gridView;
+    GridCountAdapter adapterGridView;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        recyclerView = findViewById(R.id.recyclerView);
-        setRecyclerView();
+
+        gridView = findViewById(R.id.grid_list);
+        gridItemShow();
+        adapterGridView = new GridCountAdapter(this, arrayList);
+        gridView.setAdapter(adapterGridView);
+
     }
 
-    private void setRecyclerView() {
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new dashAdapter(this, getList());
-        recyclerView.setAdapter(adapter);
-    }
+    private void gridItemShow() {
+        db = new DatabaseHelper(this);
 
-    private List<stockModel> getList() {
-        List<stockModel> payment_list = new ArrayList<>();
-        payment_list.add(new stockModel("A100","MOBILE","S22","Android 12","3","Samsung"));
-        payment_list.add(new stockModel("A200","MOBILE","12 PRO","Ios 12","4","Apple"));
-        payment_list.add(new stockModel("A300","MOBILE","V32","12GB RAM","2","VIVO"));
-        payment_list.add(new stockModel("A400","MOBILE","13 PRO","Ios 13","2","APPLE"));
-        payment_list.add(new stockModel("A500","TABLET","IPAD","Ios 10","1","Apple"));
-        payment_list.add(new stockModel("A600","LAPTOP","ROG","GTX 3040","1","ASUS"));
-        payment_list.add(new stockModel("A700","LAPTOP","MACBOOK","Ios","3","Apple"));
+        int userCount = db.getUserCount();
+        int storesCount = db.getStoresCount();
+        int manufacturesCount = db.getManufacturesCount();
+        int expensesTypesCount = db.getExpensesTypesCount();
+        int expensesCount = db.getExpensesCount();
+        int productsCount = db.getProductsCount();
+        int productPurchaseCount = db.getProductPurchaseCount();
+        int revisedPurchasesCount = db.getRevisedPurchasesCount();
+        int productsTransfersCount = db.getProductsTransfersCount();
+        int deadStockCount = db.getDeadStockCount();
+        int bankDetailsCount = db.getBankDetailsCount();
 
-        return payment_list;
-
-
+        arrayList = new ArrayList<GridCountModel>();
+        arrayList.add(new GridCountModel(R.drawable.ic_user, "Current Users", userCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_store, "Current Stores", storesCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_manufactures, "Current Manufactures", manufacturesCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_products, "Current Products", productsCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_expense_types, "Expense Types", expensesTypesCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_expense, "Current Expenses", expensesCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_purchase, "Product Purchases", productPurchaseCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_transfer, "Product Transfers", productsTransfersCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_revised_purchase, "Revised Purchases", revisedPurchasesCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_dead_stock, "Dead Stock", deadStockCount));
+        arrayList.add(new GridCountModel(R.drawable.ic_bank_details, "Bank Details", bankDetailsCount));
     }
 }

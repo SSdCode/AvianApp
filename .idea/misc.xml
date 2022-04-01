@@ -3,6 +3,80 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/drawable/button_radius.xml" value="0.1525" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/drawable/expense_type_row.xml" value="0.156" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/drawable/ic_baseline_dashboard_24.xml" value="0.141" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_account.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_add_store.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_bank_details.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_brand.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_dashboard.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_dead_stock.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_expense.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_expense_types.xml" value="0.2359375" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_form.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_gift.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_log_in.xml" value="0.264" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_manufacture.xml" value="0.16822916666666668" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_product.xml" value="0.2" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_product_purchase.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_product_transfer.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_purchase_product_list.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_registration_page.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_revised_purchase.xml" value="0.203125" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_revised_purchase_product.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_store.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/activity_users.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/add_gift.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/brand_items.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_bank_details.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_coupon.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_dead_stock.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_expense.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_expense_type.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_manufacture.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_product.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_product_purchase.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_product_transfer.xml" value="0.264" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_reviced_purchase_product.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_revised_purchase.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_store.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/dialog_users.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/expense_dialog.xml" value="0.209375" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/expense_row.xml" value="0.264" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/expense_type_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/expense_type_row.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/fragment_account.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/gift_list.xml" value="0.13177083333333334" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/item_card_view.xml" value="0.1734375" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/item_grid_count.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/item_layout.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/product_edit_dialog.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/product_list_item.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/purchase_product_add_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_bank_details.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_brand.xml" value="0.2" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_coupan.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_dead_stock.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_expense.xml" value="0.264" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_expense_type.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_manufacture.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_product.xml" value="0.2" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_product_purchase.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_product_transfer.xml" value="0.264" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_reviced_purchase_product.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_revised_purchase.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_store.xml" value="0.264" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_supplier.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_user.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/row_users.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/layout/supply_items.xml" value="0.25" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/menu/main_menu.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.156" />
+        <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/AvianApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.156" />
         <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/PlayApps/AvianApp/app/src/main/res/drawable/button_radius.xml" value="0.1" />
         <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/PlayApps/AvianApp/app/src/main/res/drawable/cell_shape.xml" value="0.1" />
         <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/PlayApps/AvianApp/app/src/main/res/drawable/delete_dialog_header.xml" value="0.1" />
@@ -11,6 +85,7 @@
         <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/PlayApps/AvianApp/app/src/main/res/layout/activity_log_in.xml" value="0.1" />
         <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/PlayApps/AvianApp/app/src/main/res/layout/activity_registration_page.xml" value="0.20346320346320346" />
         <entry key="..\:/Users/DR1000TU/AndroidStudioProjects/PlayApps/AvianApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/DR1000TU/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1" />
       </map>
     </option>
   </component>

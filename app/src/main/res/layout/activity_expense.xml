@@ -4,30 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     tools:context=".ExpenseActivity">
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Product Module" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_productTransfer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_product"
-        android:layout_centerHorizontal="true"
-        android:text="Product Transfer Module" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_productTransfer"
-        tools:listitem="@layout/expense_row" />
+        tools:listitem="@layout/row_expense" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab"

@@ -3,153 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".DashboardActivity">
 
-    <TextView
+    <GridView
+        android:id="@+id/grid_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Avian Flow Wireframe"
-        android:textAlignment="center"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="135dp"
-        android:text="Alerts For low products:"
-        android:textColor="@color/red" />
-
-
-    <ScrollView
-        android:id="@+id/scrollable"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="160dp">
-
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:layout_weight="1">
-
-                <TableRow
-                    android:background="@color/green"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="69dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Code"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="127dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Category"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="119dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Name"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="127dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Specifications"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="127dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Remaining Quantity"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="127dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Brand"
-                        android:textStyle="bold" />
-
-                </TableRow>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </androidx.recyclerview.widget.RecyclerView>
-            </TableLayout>
-        </HorizontalScrollView>
-    </ScrollView>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="87dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollable"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="306dp"
-        android:background="@color/blue"
-        android:text="Staff: \n7"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="87dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollable"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="133dp"
-        android:layout_marginEnd="52dp"
-        android:background="@color/blue"
-        android:text="Store: \n14"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
-
-    <TextView
-        android:layout_width="87dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollable"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="304dp"
-        android:background="@color/blue"
-        android:text="Store Admin: \n2"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
-
-    <TextView
-
-        android:layout_width="87dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollable"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="165dp"
-        android:layout_marginTop="233dp"
-        android:layout_marginEnd="51dp"
-        android:background="@color/blue"
-        android:text="Store Manager: \n6"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
-
+        android:clipToPadding="false"
+        android:horizontalSpacing="16dp"
+        android:numColumns="2"
+        android:padding="16dp"
+        android:scrollbars="none"
+        android:verticalSpacing="16dp"
+        tools:listitem="@layout/item_grid_count" />
 
 </RelativeLayout>

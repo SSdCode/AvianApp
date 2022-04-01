@@ -1,55 +1,183 @@
 package com.sayalife.avianapp;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
 
-import com.sayalife.avianapp.adapter.CardAdapter;
-import com.sayalife.avianapp.model.StoresModel;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    private RecyclerView recyclerView;
-    private CardAdapter cardAdapter;
-    private ArrayList<StoresModel>storesModelArrayList;
+    CardView btn_dashboard, btn_stores, btn_bank_details, btn_expenses_types,
+            btn_users, btn_manufacturers, btn_expenses, btn_products,
+            btn_product_purchase, btn_revised_purchase_products, btn_dead_stock,
+            btn_product_transfer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initializeCardView();
+        btn_dashboard = findViewById(R.id.btn_dashboard);
+        btn_stores = findViewById(R.id.btn_stores);
+        btn_bank_details = findViewById(R.id.btn_bank_details);
+        btn_expenses_types = findViewById(R.id.btn_expenses_types);
+        btn_users = findViewById(R.id.btn_users);
+        btn_manufacturers = findViewById(R.id.btn_manufacturers);
+        btn_expenses = findViewById(R.id.btn_expenses);
+        btn_products = findViewById(R.id.btn_products);
+        btn_product_purchase = findViewById(R.id.btn_product_purchase);
+        btn_revised_purchase_products = findViewById(R.id.btn_revised_purchase_products);
+        btn_dead_stock = findViewById(R.id.btn_dead_stock);
+//        btn_sale_products = findViewById(R.id.btn_sale_products);
+        btn_product_transfer = findViewById(R.id.btn_product_transfer);
+
+        btn_dashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, DashboardActivity.class));
+            }
+        });
+
+        btn_stores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, StoresActivity.class));
+            }
+        });
+
+        btn_bank_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, BankDetailsActivity.class));
+            }
+        });
+
+        btn_expenses_types.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ExpenseTypesActivity.class));
+            }
+        });
+
+        btn_users.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, UsersActivity.class));
+            }
+        });
+        btn_manufacturers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ManufactureActivity.class));
+            }
+        });
+
+        btn_expenses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ExpenseActivity.class));
+            }
+        });
+        btn_products.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ProductActivity.class));
+            }
+        });
+
+        btn_product_purchase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ProductPurchaseActivity.class));
+            }
+        });
+        btn_revised_purchase_products.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RevisedPurchaseActivity.class));
+            }
+        });
+
+        btn_dead_stock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(MainActivity.this, "In Progress", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, DeadStockActivity.class));
+            }
+        });
+
+        btn_product_transfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ProductTransferActivity.class));
+            }
+        });
     }
 
-    private void initializeCardView() {
-        recyclerView = findViewById(R.id.recyclerViewCards);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        storesModelArrayList = new ArrayList<>();
-        cardAdapter = new CardAdapter(this, storesModelArrayList);
-        recyclerView.setAdapter(cardAdapter);
-
-        createStoreData();
+    private void logout() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                SharedPreferences prefs = getSharedPreferences("LoginDetails", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.clear();
+                editor.apply();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
     }
 
-    private void createStoreData() {
-
-        StoresModel storesModel = new StoresModel("VijaySales", "023343553", "New Delhi", "Delhi", "110059", "Store no. - 46, Nagar" );
-        storesModelArrayList.add(storesModel);
-        storesModel = new StoresModel("Sargam Sales", "122372873", "Ahmedabad", "Gujarat", "390012", "Store no. - 50, Kankaria" );
-        storesModelArrayList.add(storesModel);
-        storesModel = new StoresModel("Kochi Sales", "455843434", "Trivandrum", "Kerala", "603445", "Store no. - 48, Tirulli" );
-        storesModelArrayList.add(storesModel);
-        storesModel = new StoresModel("Banerjee Sales", "23434343", "Kolkata", "West Bengal", "839404", "Store no. - 59, Howrah" );
-        storesModelArrayList.add(storesModel);
-        storesModel = new StoresModel("Gupta Sales", "23723724", "New Delhi", "Delhi", "110043", "Store no. - 80, Vikas Nagar" );
-        storesModelArrayList.add(storesModel);
-        cardAdapter.notifyDataSetChanged();
-
-
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        MainActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.menu_logout:
+                logout();
+                break;
+            case R.id.menu_account:
+                startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
 }

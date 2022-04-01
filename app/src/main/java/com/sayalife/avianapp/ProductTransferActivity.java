@@ -1,28 +1,40 @@
 package com.sayalife.avianapp;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.sayalife.avianapp.adapter.ProductTransferRecyclerAdapter;
+import com.sayalife.avianapp.adapter.ProductTransferAdapter;
+import com.sayalife.avianapp.database.DatabaseHelper;
 import com.sayalife.avianapp.model.ProductTransferModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class ProductTransferActivity extends AppCompatActivity {
     ArrayList<ProductTransferModel> arrayList;
     RecyclerView recyclerView;
-    ProductTransferRecyclerAdapter productTransferRecyclerAdapter;
+    ProductTransferAdapter productTransferAdapter;
     FloatingActionButton mAddExp;
 
     @Override
@@ -35,81 +47,79 @@ public class ProductTransferActivity extends AppCompatActivity {
         mAddExp = findViewById(R.id.add_fab);
         recyclerView = findViewById(R.id.recyclerViewData);
 
-        ProductData();
 
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-
-        productTransferRecyclerAdapter = new ProductTransferRecyclerAdapter(this, arrayList);
-        recyclerView.setAdapter(productTransferRecyclerAdapter);
-
-        productTransferRecyclerAdapter.setOnItemClickListener(position -> Toast.makeText(ProductTransferActivity.this, "Item Id - " + position, Toast.LENGTH_SHORT).show());
-
+        updateRecyclerView();
         mAddExp.setOnClickListener(v -> showAddProductTransferDialog());
+    }
+
+    private void updateRecyclerView() {
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+        arrayList = db.getAllProductTransfer();
+        productTransferAdapter = new ProductTransferAdapter(this, arrayList);
+        recyclerView.setAdapter(productTransferAdapter);
+        productTransferAdapter.notifyDataSetChanged();
+        db.close();
     }
 
     private void showAddProductTransferDialog() {
         final Dialog dialog = new Dialog(ProductTransferActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
-        dialog.setContentView(R.layout.product_transfer_dialog);
+        dialog.setContentView(R.layout.dialog_product_transfer);
 
-        final EditText product_from = dialog.findViewById(R.id.product_from);
-        final EditText product_code = dialog.findViewById(R.id.product_code);
+        final Spinner sp_product_from = dialog.findViewById(R.id.product_from);
+        final Spinner sp_product_to = dialog.findViewById(R.id.product_to);
+        final Spinner product_name = dialog.findViewById(R.id.product_name);
+        final AppCompatSpinner product_status = dialog.findViewById(R.id.product_status);
         final EditText product_quantity = dialog.findViewById(R.id.product_quantity);
-        AppCompatButton btnProductTransferDialog = dialog.findViewById(R.id.btn_productTransferDialog);
+        Button btnProductTransferDialog = dialog.findViewById(R.id.btn_productTransferDialog);
+
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+        List<String> lables = db.getAllStoreNames();
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, lables);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_product_from.setAdapter(dataAdapter);
+        sp_product_to.setAdapter(dataAdapter);
+
+        List<String> products = db.getAllProductNames();
+        ArrayAdapter<String> dataAdapterProduct = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, products);
+        dataAdapterProduct.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        product_name.setAdapter(dataAdapterProduct);
 
         btnProductTransferDialog.setOnClickListener(v -> {
-            String product_codeSt = product_code.getText().toString();
-            String product_fromSt = product_from.getText().toString();
-            String product_quantitySt = product_quantity.getText().toString();
+            int product_from_ = db.getStoreId(sp_product_from.getSelectedItem().toString());
+            int product_to_ = db.getStoreId(sp_product_to.getSelectedItem().toString());
+            int product_id_ = db.getProductId(product_name.getSelectedItem().toString());
+            int product_statusSt = product_status.getSelectedItemPosition();
+            int product_quantitySt = Integer.parseInt(product_quantity.getText().toString());
 
-            addProduct(product_fromSt, product_codeSt, product_quantitySt);
+            addProduct(product_from_, product_to_, product_id_, product_statusSt, product_quantitySt);
             dialog.dismiss();
         });
 
         dialog.show();
         Window window = dialog.getWindow();
         window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
-    private void addProduct(String product_fromSt, String product_codeSt, String product_quantitySt) {
-        if (product_fromSt.equals("") || product_codeSt.equals("") || product_quantitySt.equals("")) {
-            Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
+    private void addProduct(int product_fromSt, int product_toSt, int product_idSt, int product_statusSt, int product_quantitySt) {
+        if (product_fromSt == 0 || product_toSt == 0 || product_idSt == 0 || product_quantitySt == 0) {
+            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
         } else {
-//            Write a code to add Product
-            Toast.makeText(getApplicationContext(), "Product added successfully", Toast.LENGTH_SHORT).show();
+            DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+            Date c = Calendar.getInstance().getTime();
+            System.out.println("Current time => " + c);
+
+            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+            String formattedDate = df.format(c);
+            db.insertProductTransfer(product_fromSt, product_toSt, product_idSt, formattedDate, product_statusSt, product_quantitySt);
+            updateRecyclerView();
+            Toast.makeText(getApplicationContext(), "Product Transfer Added", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void ProductData() {
-        arrayList = new ArrayList<>();
-
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
-        arrayList.add(new ProductTransferModel("Avian store padra", "Avian store vadodara", "110254", "22-09-2020", "pending", "50"));
     }
 }

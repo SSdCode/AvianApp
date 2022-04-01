@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     tools:context=".ProductActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewData"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/product_row" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/row_product" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab"
