@@ -3,23 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".UsersActivity">
 
     <Spinner
         android:id="@+id/userTypeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10ssp"
-        android:background="@color/white"
         android:entries="@array/userTypes"
         android:textAlignment="center" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2ssp"
+        android:layout_below="@id/userTypeSpinner"
+        android:layout_marginVertical="@dimen/_3ssp"
+        android:background="@android:color/darker_gray" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/usersRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/userTypeSpinner"
+        android:layout_marginTop="@dimen/_4ssp"
         tools:listitem="@layout/row_user" />
 
 </RelativeLayout>

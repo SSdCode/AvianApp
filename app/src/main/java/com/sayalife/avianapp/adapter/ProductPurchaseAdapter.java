@@ -51,8 +51,9 @@ public class ProductPurchaseAdapter extends RecyclerView.Adapter<ProductPurchase
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         ProductPurchaseModel model = arrayList.get(position);
+        DatabaseHelper databaseHelper = new DatabaseHelper(context);
         holder.batchId.setText(String.valueOf(model.getId()));
-        holder.brandId.setText(String.valueOf(model.getBrandId()));
+        holder.brandId.setText(databaseHelper.getManufactureName(model.getBrandId()));
         holder.category.setText(model.getCategory());
         holder.specification.setText(model.getSpecification());
         holder.quantity.setText(String.valueOf(model.getQuantity()));

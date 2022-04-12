@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="20dp"
+    android:layout_margin="@dimen/_5ssp"
+    app:cardCornerRadius="@dimen/_16ssp"
     app:cardElevation="20dp"
     app:cardMaxElevation="22dp"
     app:cardPreventCornerOverlap="true"
-    app:contentPadding="6dp">
+    app:contentPadding="@dimen/_2ssp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:background="@color/purple_500"
+        android:orientation="vertical"
+        android:padding="@dimen/_8ssp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,7 +29,8 @@
                 android:layout_toStartOf="@id/btnDelete"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_baseline_edit_24" />
+                android:src="@drawable/ic_baseline_edit_24"
+                app:tint="@color/white" />
 
             <ImageButton
                 android:id="@+id/btnDelete"
@@ -39,7 +41,8 @@
                 android:layout_marginHorizontal="@dimen/_6ssp"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_baseline_delete_24" />
+                android:src="@drawable/ic_baseline_delete_24"
+                app:tint="@color/white" />
         </RelativeLayout>
 
         <View
@@ -61,7 +64,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/rowdies_regular"
                 android:text="Dead Stock Id"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
 
             <TextView
@@ -71,6 +74,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/rowdies_light"
                 android:text="1"
+                android:textColor="@color/background_color"
                 android:textSize="@dimen/_14ssp" />
         </LinearLayout>
 
@@ -88,7 +92,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/rowdies_regular"
                 android:text="Product Code"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
 
             <TextView
@@ -98,6 +102,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/rowdies_light"
                 android:text="111101"
+                android:textColor="@color/background_color"
                 android:textSize="@dimen/_14ssp" />
         </LinearLayout>
 
@@ -114,7 +119,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/rowdies_regular"
                 android:text="Quantity"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
 
             <TextView
@@ -124,6 +129,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/rowdies_light"
                 android:text="10000"
+                android:textColor="@color/background_color"
                 android:textSize="@dimen/_14ssp" />
         </LinearLayout>
 

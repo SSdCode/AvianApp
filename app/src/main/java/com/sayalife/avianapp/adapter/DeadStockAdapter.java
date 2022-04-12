@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sayalife.avianapp.R;
@@ -50,8 +49,9 @@ public class DeadStockAdapter extends RecyclerView.Adapter<DeadStockAdapter.MyHo
     @Override
     public void onBindViewHolder(@NonNull DeadStockAdapter.MyHolder holder, int position) {
         DeadStockModel model = arrayList.get(position);
+        DatabaseHelper databaseHelper = new DatabaseHelper(context);
         holder.dead_stock_id.setText(String.valueOf(model.getId()));
-        holder.product_code.setText(String.valueOf(model.getProductId()));
+        holder.product_code.setText(databaseHelper.getProductNameById(model.getProductId()));
         holder.quantity.setText(String.valueOf(model.getQuantity()));
         builder = new AlertDialog.Builder(context);
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {

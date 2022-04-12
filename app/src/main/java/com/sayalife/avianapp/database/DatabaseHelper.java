@@ -53,7 +53,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String formattedDate = df.format(c);
 
 //        Table Roll
-        String createTableRole = "CREATE TABLE Role(_id INTEGER PRIMARY KEY AUTOINCREMENT, Name nvarchar(50) NOT NULL)";
+        String createTableRole = "CREATE TABLE Role(" +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " Name nvarchar(50) NOT NULL)";
         db.execSQL(createTableRole);
 
         String insertRole1 = "INSERT INTO Role VALUES(1,\"super admin\")";
@@ -87,10 +89,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
          * 4 = Store Staff
          * */
         db.execSQL("INSERT INTO AllUsers VALUES(1,'Samir','Dubey','Male','sd@g.com','7226064677','sd@g.com',1)");
-        db.execSQL("INSERT INTO AllUsers VALUES(2,'Dhruv','patel','Male','dp@g.com','7568791230','dp@g.com',2)");
+        db.execSQL("INSERT INTO AllUsers VALUES(2,'Dhruv','Patel','Male','dp@g.com','7568791230','dp@g.com',2)");
         db.execSQL("INSERT INTO AllUsers VALUES(3,'Jay','Shah','Male','js@g.com','8745991230','js@g.com',3)");
-        db.execSQL("INSERT INTO AllUsers VALUES(4,'Ritik','patel','Male','rp@g.com','9875691230','rp@g.com',4)");
-        db.execSQL("INSERT INTO AllUsers VALUES(5,'harish','patel','Female','sd@g.com','9856791230','sd@g.com',2)");
+        db.execSQL("INSERT INTO AllUsers VALUES(4,'Ritik','Patel','Male','rp@g.com','9875691230','rp@g.com',4)");
+        db.execSQL("INSERT INTO AllUsers VALUES(5,'harshita','Pandya','Female','sd@g.com','9856791230','sd@g.com',2)");
 
 
 //        Table ExpensesTypes
@@ -180,13 +182,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO Products VALUES (1, 'T-Shirt', 'Cloths', 'S', 'Red', 1, 1, 1, 'This is a T-Shirt', 75, 400, 1, \'" + formattedDate + "\')");
         db.execSQL("INSERT INTO Products VALUES (2, 'Shirt', 'Cloths', 'M', 'Blue', 1, 1, 1, 'This is a Shirt', 57, 200, 1, \'" + formattedDate + "\')");
         db.execSQL("INSERT INTO Products VALUES (3, 'Pant', 'Cloths', 'L', 'Black', 1, 1, 2, 'This is a Pant', 68, 600, 1, \'" + formattedDate + "\')");
-        db.execSQL("INSERT INTO Products VALUES (4, 'Shoes', 'Cloths', 'S', 'Red', 1, 1, 3, 'This is a Shoes', 40, 2000, 1, \'" + formattedDate + "\')");
-        db.execSQL("INSERT INTO Products VALUES (5, 'Bag', 'Cloths', 'M', 'Blue', 1, 1, 3, 'This is a Bag', 60, 750, 1, \'" + formattedDate + "\')");
-        db.execSQL("INSERT INTO Products VALUES (6, 'T-Shirt', 'Cloths', 'L', 'Black', 1, 1, 2, 'This is a T-Shirt', 250, 100, 1, \'" + formattedDate + "\')");
-        db.execSQL("INSERT INTO Products VALUES (7, 'Shirt', 'Cloths', 'S', 'Red', 1, 1, 2, 'This is a Shirt', 50, 600, 1, \'" + formattedDate + "\')");
-        db.execSQL("INSERT INTO Products VALUES (8, 'Pant', 'Cloths', 'M', 'Blue', 1, 1, 1, 'This is a Pant', 100, 800, 1, \'" + formattedDate + "\')");
-        db.execSQL("INSERT INTO Products VALUES (9, 'Shoes', 'Cloths', 'L', 'Black', 1, 1, 2, 'This is a Shoes', 1200, 100, 1, \'" + formattedDate + "\')");
-        db.execSQL("INSERT INTO Products VALUES (10, 'Bag', 'Cloths', 'S', 'Red', 1, 1, 3, 'This is a Bag', 10, 800, 1, \'" + formattedDate + "\')");
+        db.execSQL("INSERT INTO Products VALUES (4, 'Shoes', 'Accessories', 'S', 'Red', 1, 1, 3, 'This is a Shoes', 40, 2000, 1, \'" + formattedDate + "\')");
+        db.execSQL("INSERT INTO Products VALUES (5, 'Bag', 'Accessories', 'M', 'Blue', 1, 1, 3, 'This is a Bag', 60, 750, 1, \'" + formattedDate + "\')");
+        db.execSQL("INSERT INTO Products VALUES (6, 'Shocks', 'Accessories', 'L', 'Black', 1, 1, 2, 'This is a Shock', 20, 100, 1, \'" + formattedDate + "\')");
+        db.execSQL("INSERT INTO Products VALUES (7, 'Tracks', 'Home Wearing', 'S', 'Red', 1, 1, 2, 'This is a Shirt', 50, 600, 1, \'" + formattedDate + "\')");
+        db.execSQL("INSERT INTO Products VALUES (8, 'Kurta', 'Traditional Cloths', 'M', 'Blue', 1, 1, 1, 'This is a Pant', 100, 800, 1, \'" + formattedDate + "\')");
+        db.execSQL("INSERT INTO Products VALUES (9, 'Paijama', 'Traditional Cloths', 'L', 'Black', 1, 1, 2, 'This is a Shoes', 1200, 100, 1, \'" + formattedDate + "\')");
+        db.execSQL("INSERT INTO Products VALUES (10, 'sleeve', 'Arm sleeves', 'S', 'Red', 1, 1, 3, 'This is a Bag', 10, 800, 1, \'" + formattedDate + "\')");
 
 
         String createTableProductTransfer = "CREATE TABLE ProductTransfer(\n" +
@@ -217,11 +219,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY (BrandId) REFERENCES ManufacturerDetail(_id))";
         db.execSQL(createTableProductPurchase);
         db.execSQL("INSERT INTO ProductPurchase VALUES (1, 1, 'Mans Shirts', 'S', 15, 1005)");
-        db.execSQL("INSERT INTO ProductPurchase VALUES (2, 1, 'Mans Shirts', 'M', 20, 1457)");
-        db.execSQL("INSERT INTO ProductPurchase VALUES (3, 1, 'Womans Cloths', 'L', 50, 6549)");
-        db.execSQL("INSERT INTO ProductPurchase VALUES (4, 1, 'Womans Cloths', 'S', 70, 1457)");
+        db.execSQL("INSERT INTO ProductPurchase VALUES (2, 2, 'Mans Shirts', 'M', 20, 1457)");
+        db.execSQL("INSERT INTO ProductPurchase VALUES (3, 3, 'Womans Cloths', 'L', 50, 6549)");
+        db.execSQL("INSERT INTO ProductPurchase VALUES (4, 2, 'Womans Cloths', 'S', 70, 1457)");
         db.execSQL("INSERT INTO ProductPurchase VALUES (5, 1, 'Womans Cloths', 'M', 30, 2456)");
-        db.execSQL("INSERT INTO ProductPurchase VALUES (6, 1, 'Mans Cloths', 'L', 18, 3657)");
+        db.execSQL("INSERT INTO ProductPurchase VALUES (6, 3, 'Mans Cloths', 'L', 18, 3657)");
 
         String createTableRevisedPurchase = "CREATE TABLE RevisedPurchase(\n" +
                 "\t _id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
@@ -1005,6 +1007,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     labels.add(cursor.getString(1));
+//                    labels.add(cursor.getString(1) + " - " + cursor.getInt(7));
                 } while (cursor.moveToNext());
             }
         } else {
