@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,19 +25,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btn_users = findViewById(R.id.btn_users);
         btn_dashboard = findViewById(R.id.btn_dashboard);
         btn_stores = findViewById(R.id.btn_stores);
-        btn_bank_details = findViewById(R.id.btn_bank_details);
-        btn_expenses_types = findViewById(R.id.btn_expenses_types);
-        btn_users = findViewById(R.id.btn_users);
         btn_manufacturers = findViewById(R.id.btn_manufacturers);
+        btn_expenses_types = findViewById(R.id.btn_expenses_types);
         btn_expenses = findViewById(R.id.btn_expenses);
         btn_products = findViewById(R.id.btn_products);
         btn_product_purchase = findViewById(R.id.btn_product_purchase);
+        btn_product_transfer = findViewById(R.id.btn_product_transfer);
+        btn_bank_details = findViewById(R.id.btn_bank_details);
         btn_revised_purchase_products = findViewById(R.id.btn_revised_purchase_products);
         btn_dead_stock = findViewById(R.id.btn_dead_stock);
-//        btn_sale_products = findViewById(R.id.btn_sale_products);
-        btn_product_transfer = findViewById(R.id.btn_product_transfer);
+
+        SharedPreferences prefs = getSharedPreferences("LoginDetails", MODE_PRIVATE);
+        int roleId = prefs.getInt("roleId", 0);
+        Log.d("MainActivity", "onCreate: role Id: " + roleId);
+        switch (roleId) {
+            case 2:
+                btn_users.setVisibility(View.GONE);
+                break;
+            case 3:
+                btn_users.setVisibility(View.GONE);
+                btn_stores.setVisibility(View.GONE);
+                btn_expenses_types.setVisibility(View.GONE);
+                btn_bank_details.setVisibility(View.GONE);
+                break;
+            case 4:
+                btn_users.setVisibility(View.GONE);
+                btn_dashboard.setVisibility(View.GONE);
+                btn_stores.setVisibility(View.GONE);
+                btn_manufacturers.setVisibility(View.GONE);
+                btn_expenses_types.setVisibility(View.GONE);
+                btn_expenses.setVisibility(View.GONE);
+                btn_bank_details.setVisibility(View.GONE);
+                btn_dead_stock.setVisibility(View.GONE);
+        }
 
         btn_dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
         btn_dead_stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "In Progress", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, DeadStockActivity.class));
             }
         });

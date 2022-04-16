@@ -42,6 +42,12 @@
         <item>Store Staff</item>
     </string-array>
 
+    <string-array name="signUpUserTypes">
+        <item>Store Staff</item>
+        <item>Store Manager</item>
+        <item>Store Admin</item>
+    </string-array>
+
     <string-array name="couponType">
         <item>%</item>
         <item>₹</item>

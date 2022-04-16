@@ -3,10 +3,12 @@ package com.sayalife.avianapp;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -74,9 +76,10 @@ public class LoginActivity extends AppCompatActivity {
                     DatabaseHelper helper = new DatabaseHelper(getApplicationContext());
                     SQLiteDatabase database = helper.getReadableDatabase();
 
-                    String[] columns = {"_id", "EMAIL", "PASSWORD"};
+                    String[] columns = {"_id", "RollId"};
                     String[] cValues = {email, password};
                     Cursor cursor = database.query("AllUsers", columns, "EMAIL = ? AND PASSWORD = ?", cValues, null, null, null);
+                    Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
                     if (cursor.getCount() > 0) {
 
                         cursor.moveToFirst();
@@ -84,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = getSharedPreferences("LoginDetails", MODE_PRIVATE).edit();
                         editor.putString("email", email);
                         editor.putLong("userId", cursor.getLong(0));
+                        editor.putInt("roleId", cursor.getInt(1));
                         editor.apply();
 
                         database.close();
@@ -92,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
-
                     }
                 }
             }

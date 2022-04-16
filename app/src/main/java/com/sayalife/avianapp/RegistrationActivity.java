@@ -25,10 +25,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     TextInputLayout firstNameLayout, lastNameLayout;
     TextInputEditText firstNameEditText, lastNameEditText, etPassword, etConfirmPassword;
-    AppCompatSpinner genderAppCompatSpinner;
+    AppCompatSpinner genderAppCompatSpinner, userAppCompatSpinner;
     EditText editTextPhone, editTextEmailAddress;
     Button signup_btn;
-
+    int roleId;
     String fName, lName, gender, phone, email, password, confirmPassword;
 
     @Override
@@ -44,6 +44,7 @@ public class RegistrationActivity extends AppCompatActivity {
         firstNameEditText = findViewById(R.id.firstNameEditText);
         lastNameEditText = findViewById(R.id.lastNameEditText);
         genderAppCompatSpinner = findViewById(R.id.genderAppCompatSpinner);
+        userAppCompatSpinner = findViewById(R.id.userTypeAppCompatSpinner);
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextEmailAddress = findViewById(R.id.editTextEmailAddress);
         etPassword = findViewById(R.id.etPassword);
@@ -122,11 +123,22 @@ public class RegistrationActivity extends AppCompatActivity {
                                 values.put("EMAIL", email);
                                 values.put("PHONE", phone);
                                 values.put("PASSWORD", password);
-                                values.put("RollId", 4);
+
+                                if (userAppCompatSpinner.getSelectedItemId() == 0) {
+                                    roleId = 4;
+                                } else if (userAppCompatSpinner.getSelectedItemId() == 1) {
+                                    roleId = 3;
+                                } else if (userAppCompatSpinner.getSelectedItemId() == 2) {
+                                    roleId = 2;
+                                }
+
+                                values.put("ROLE_ID", roleId);
+
                                 long user_id = database.insert("AllUsers", null, values);
                                 if (user_id != -1) {
                                     SharedPreferences.Editor editor = getSharedPreferences("LoginDetails", MODE_PRIVATE).edit();
                                     editor.putString("email", email);
+                                    editor.putInt("roleId", roleId);
                                     editor.putLong("userId", user_id);
                                     editor.apply();
 

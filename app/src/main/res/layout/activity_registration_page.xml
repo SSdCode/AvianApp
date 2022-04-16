@@ -77,6 +77,30 @@
                 android:layout_marginVertical="@dimen/_4ssp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/rowdies_light"
+                    android:text="Login As"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/userTypeAppCompatSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/signUpUserTypes"
+                    android:textColor="@color/black" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_4ssp">
+
+                <TextView
                     android:id="@+id/genderTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
